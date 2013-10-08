@@ -108,6 +108,7 @@ func Drive(driverConn net.Conn, commChan chan string) {
 		_, err := driverConn.Read(data)
 		if err != nil {
 			log.Println(err)
+			return
 		}
 		log.Println("Data received from driver:", string(data))
 		commChan <- string(data)
